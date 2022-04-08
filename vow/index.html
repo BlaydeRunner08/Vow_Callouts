@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+</head>
+<style>
+    body {
+        background-color: black;
+        justify-content: center;
+        margin: 20px;
+    }
+
+    .grid_wrapper {
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 100px);
+    }
+
+    .img {
+        object-fit: cover;
+        width: 80%;
+        max-height: 80%;
+    }
+
+    .box {
+        margin: 10px;
+        box-sizing: border-box;
+        cursor: pointer;
+        color: #fff;
+        justify-content: center;
+        text-align: center;
+    }
+</style>
+
+<script>
+    function send(msg) {
+        fetch("/send?msg=" + msg);
+    }
+</script>
+
+<body>
+    <div class="grid_wrapper">
+        <div class="box" onclick="send('----------')"><img src="next.png" class='img'><br />Next</div>
+        <div class="box" onclick="send('Ascendant Plane')"><img src="ascendant_plane.png" class='img'><br />Ascendant
+            Plane</div>
+        <div class="box" onclick="send('Black Garden')"><img src="black_garden.png" class='img'><br />Black Garden</div>
+        <div class="box" onclick="send('Black Heart')"><img src="black_heart.png" class='img'><br />Black Heart</div>
+        <div class="box" onclick="send('Commune')"><img src="commune.png" class='img'><br />Commune</div>
+        <div class="box" onclick="send('Darkness')"><img src="darkness.png" class='img'><br />Darkness</div>
+        <div class="box" onclick="send('Drink')"><img src="drink.png" class='img'><br />Drink</div>
+        <div class="box" onclick="send('Earth')"><img src="earth.png" class='img'><br />Earth</div>
+        <div class="box" onclick="send('Enter')"><img src="enter.png" class='img'><br />Enter</div>
+        <div class="box" onclick="send('Fleet')"><img src="fleet.png" class='img'><br />Fleet</div>
+        <div class="box" onclick="send('Give')"><img src="give.png" class='img'><br />Give</div>
+        <div class="box" onclick="send('Grieve')"><img src="grieve.png" class='img'><br />Grieve</div>
+        <div class="box" onclick="send('Guardian')"><img src="guardian.png" class='img'><br />Guardian</div>
+        <div class="box" onclick="send('Hive')"><img src="hive.png" class='img'><br />Hive</div>
+        <div class="box" onclick="send('Kill')"><img src="kill.png" class='img'><br />Kill</div>
+        <div class="box" onclick="send('Knowledge')"><img src="knowledge.png" class='img'><br />Knowledge</div>
+        <div class="box" onclick="send('Light')"><img src="light.png" class='img'><br />Light</div>
+        <div class="box" onclick="send('Love')"><img src="love.png" class='img'><br />Love</div>
+        <div class="box" onclick="send('Pyramid')"><img src="pyramid.png" class='img'><br />Pyramid</div>
+        <div class="box" onclick="send('Savathun')"><img src="savathun.png" class='img'><br />Savathun</div>
+        <div class="box" onclick="send('Scorn')"><img src="scorn.png" class='img'><br />Scorn</div>
+        <div class="box" onclick="send('Stop')"><img src="stop.png" class='img'><br />Stop</div>
+        <div class="box" onclick="send('Tower')"><img src="tower.png" class='img'><br />Tower</div>
+        <div class="box" onclick="send('Traveler')"><img src="traveler.png" class='img'><br />Traveler</div>
+        <div class="box" onclick="send('Witness')"><img src="witness.png" class='img'><br />Witness</div>
+        <div class="box" onclick="send('Worm')"><img src="worm.png" class='img'><br />Worm</div>
+        <div class="box" onclick="send('Worship')"><img src="worship.png" class='img'><br />Worship</div>
+    </div>
+</body>
+
+</html>
