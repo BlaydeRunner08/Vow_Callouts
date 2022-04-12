@@ -13,7 +13,6 @@ const port = 8080
 
 var keyboardFd int
 var err error
-var syncLock sync.Mutex
 var msgChan chan string
 
 func sendKey(key byte) {
@@ -60,10 +59,6 @@ func pressKeyCode(keyCode byte) {
 
 func pressEnter() {
 	pressKeyCode(0x28)
-}
-
-func pressBackspace() {
-	pressKeyCode(0x2a)
 }
 
 func pressEsc() {
