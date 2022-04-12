@@ -11,18 +11,10 @@ import (
 
 const port = 8080
 
-// throttle protection, don't send messages more often than this
-// (in milliseconds).  Destiny 2 still drops some messages without ever
-// sending them even when using the guard, but it also does this when using
-// a real keyboard being typed on by a human, seems like a bug in D2's text
-// chat.
-const spamDuration = 3000
-
 var keyboardFd int
 var err error
 var syncLock sync.Mutex
 var msgChan chan string
-var lastMessageSent int64
 
 func sendKey(key byte) {
 	modifier := byte(0x00)
@@ -70,6 +62,10 @@ func pressEnter() {
 	pressKeyCode(0x28)
 }
 
+func pressBackspace() {
+	pressKeyCode(0x2a)
+}
+
 func pressEsc() {
 	pressKeyCode(0x29)
 }
@@ -95,30 +91,19 @@ func processMessages() {
 	for {
 		msg := <-msgChan
 		byteData := []byte(msg)
-		timeNow := getTimestamp()
-
-		delta := timeNow - lastMessageSent
-
-		if delta < spamDuration {
-			time.Sleep(time.Duration(spamDuration-delta) * time.Millisecond)
-		}
 
 		pressEnter()
 
 		for _, key := range byteData {
 			sendKey(key)
 		}
-
+		
 		pressEnter()
 		pressEsc()
-
-		lastMessageSent = getTimestamp()
 	}
 }
 
 func main() {
-	lastMessageSent = 0
-
 	msgChan = make(chan string, 32)
 
 	keyboardFd, err = syscall.Open("/dev/hidg0", syscall.O_RDWR, 06666)
