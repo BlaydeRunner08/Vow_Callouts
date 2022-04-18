@@ -17,5 +17,9 @@ Developed and tested using a Raspberry Pi Zero WH and Xbox Series X using this U
 
 https://www.amazon.com/gp/product/B07NKNBZYG
 
+I'm unlikely to maintain this until such a time as Raspberry Pi devices become more widely available.  For now I'm focusing on the solution using Adafruit Feather 32u4 Bluefruit LE.  See:
 
+https://github.com/gmcbay/Transmat_32u4
+
+https://github.com/gmcbay/Transmat_Android
 
