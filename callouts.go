@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-const port = 8080
+const port = 80
 
 var keyboardFd int
 var err error
@@ -109,7 +109,7 @@ func main() {
 
 	go processMessages()
 
-	fileServer := http.FileServer(http.Dir("./vow"))
+	fileServer := http.FileServer(http.Dir("/usr/local/bin/callouts/vow"))
 	http.Handle("/", fileServer)
 	http.HandleFunc("/send", sendHandler)
 
