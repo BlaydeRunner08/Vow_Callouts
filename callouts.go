@@ -109,7 +109,7 @@ func main() {
 
 	go processMessages()
 
-	fileServer := http.FileServer(http.Dir("/usr/local/bin/callouts/vow"))
+	fileServer := http.FileServer(http.Dir("/usr/local/bin/Vow_Callouts/vow"))
 	http.Handle("/", fileServer)
 	http.HandleFunc("/send", sendHandler)
 
