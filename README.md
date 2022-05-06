@@ -1,5 +1,5 @@
 # callouts
-Vow of the Disciple callout helper for console
+Vow of the Disciple callout helper for console, with modifications for Trash Panda "unique" callouts.
 
 Runs on Raspberry Pi devices that support OTG-USB on /dev/hidg0.  
 
