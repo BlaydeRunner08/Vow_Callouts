@@ -38,18 +38,6 @@ func sendKey(key byte) {
 	if key == 0x2d {
 		hidCode = 0x2d
 	}
-
-	// left bracket
-	if key == 0x26 {
-		hidCode = 0x26
-		modifier = 0x20
-	}
-
-	// right bracket
-	if key == 0x27 {
-		hidCode = 0x27
-		modifier = 0x20
-	}
 		
 	if hidCode != 0 {
 		syscall.Write(keyboardFd, []byte{modifier, 0, hidCode, 0, 0, 0, 0, 0})
